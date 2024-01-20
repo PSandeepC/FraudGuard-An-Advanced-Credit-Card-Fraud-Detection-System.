@@ -36,8 +36,9 @@ if nav_choice == "Home":
         prediction_log = model_log.predict(input_data)[0]
        
 
-    prediction_result = "Normal Transaction" if prediction_log == 0  else "Fraudulent Transaction"
-    st.success(f"Prediction: {prediction_result}")
+    prediction_result = "Normal Transaction" if prediction_log == 0 else "Fraudulent Transaction"
+    status = "success" if prediction_log == 0 else "error"
+    st.status(f"Prediction: {prediction_result}", status)
 
 
 
