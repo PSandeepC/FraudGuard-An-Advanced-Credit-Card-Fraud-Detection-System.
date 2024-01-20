@@ -106,11 +106,25 @@ elif nav_choice == "Performance and Graphs":
 
 # Section 4: About
 elif nav_choice == "About":
-    st.header("About This Project")
-    st.write(example_about_text)
+    st.header("About This Project: Credit Card Fraud Detection")
+
+    st.write("This project focuses on credit card fraud detection using three machine learning algorithms: Logistic Regression, Random Forest, and Decision Tree.")
+    st.write("Steps Followed:")
+    st.write("1. Data Preprocessing: The dataset underwent thorough preprocessing to handle missing values, scale features, and address class imbalance.")
+    st.write("2. Model Training: Three classification models, Logistic Regression, Random Forest, and Decision Tree, were trained on the preprocessed data.")
+    st.write("3. Performance Evaluation: Model performance was assessed using metrics such as accuracy, precision, recall, and F1 score.")
+    st.write("4. Oversampling: The data was oversampled to mitigate class imbalance and improve model performance.")
+    
     st.write("Further Improvements:")
-    st.write("- Improve model interpretability.")
-    st.write("- Explore advanced feature engineering techniques.")
+    st.write("- Enhance model interpretability to understand the decision-making process of the algorithms.")
+    st.write("- Explore advanced feature engineering techniques to potentially improve model accuracy.")
     st.write("- Enhance the user interface for a better user experience.")
+    
+    st.write("GitHub Repository:")
+    st.write("Find the code, documentation, and updates on the project's GitHub repository:")
+    st.write("[GitHub Repository Link](https://github.com/PSandeepC/FraudGuard-An-Advanced-Credit-Card-Fraud-Detection-System.)")
+
+    st.write("Feel free to contribute and provide feedback to make this project even better!")
+
 
 
