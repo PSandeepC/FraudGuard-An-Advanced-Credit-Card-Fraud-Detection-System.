@@ -29,7 +29,7 @@ if nav_choice == "Home":
     st.write("**Example for Fraudulent Transaction:**")
     st.text("[27, 15, 24, 38, 21, 48, 1, 25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 83, 74, 56, 43, 29]")
     st.write("**Example for Normal Transaction:**")
-    st.text("[27, 15, 24, 38, 21, 48, 1, 25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 83, 74, 56, 43, 29]")
+    st.text("[1, 1, 1, 1, 1, 1, 1, 27, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]")
     # Option to manually enter input
     st.subheader("Enter Input Manually:")
     feature_values = [st.slider(f"Feature {i}", min_value=0, max_value=100, value=example_input_resampled[i-1]) for i in range(1, 30)]
