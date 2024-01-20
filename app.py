@@ -86,19 +86,22 @@ elif nav_choice == "Performance and Graphs":
 
     # Display graphs
     st.subheader("Visualize Performance Metrics")
-    st.image(performance_metrics_image_path, use_column_width=True, caption="Performance Metrics Visualization")
+    st.image('Visualize Performance Metrics.png', use_column_width=True, caption="Performance Metrics Visualization")
 
     st.subheader("Visualize Confusion Matrix")
-    st.image(confusion_matrix_image_path, use_column_width=True, caption="Confusion Matrix Visualization")
+    st.image('Visualize Confusion Matrix1.png', use_column_width=True, caption="Confusion Matrix Visualization")
+    st.image('Visualize Confusion Matrix2.png', use_column_width=True, caption="Confusion Matrix Visualization")
+    st.image('Visualize Confusion Matrix3.png', use_column_width=True, caption="Confusion Matrix Visualization")
+    
 
     st.subheader("Performance Comparison with Oversampling")
-    st.image(oversampling_comparison_image_path, use_column_width=True, caption="Oversampling Comparison")
+    st.image('Performance Comparison with Oversampling.png', use_column_width=True, caption="Oversampling Comparison")
 
     st.subheader("Class Distribution")
-    st.image(class_distribution_image_path, use_column_width=True, caption="Class Distribution")
+    st.image('Class Distribution.png', use_column_width=True, caption="Class Distribution")
 
     st.subheader("Class Distribution After Undersampling")
-    st.image(undersampling_distribution_image_path, use_column_width=True, caption="Class Distribution After Undersampling")
+    st.image('Class Distribution After Undersampling.png', use_column_width=True, caption="Class Distribution After Undersampling")
 
 
 # Section 4: About
