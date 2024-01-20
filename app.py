@@ -61,7 +61,6 @@ elif nav_choice == "Performance and Graphs":
 
     # Display scores
     st.subheader("Model Scores:")
-    st.table(scores_data)
 
     # Logistic Regression Metrics
     st.subheader("Logistic Regression Metrics:")
