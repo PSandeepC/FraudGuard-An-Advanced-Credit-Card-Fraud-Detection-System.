@@ -36,16 +36,13 @@ if nav_choice == "Home":
         prediction_log = model_log.predict(input_data)[0]
        
 
-    # Assuming `prediction_log` is the result of your prediction (0 for normal, 1 for fraudulent)
-    prediction_log = 0  # Replace with your actual prediction result
-    
     prediction_result = "Normal Transaction" if prediction_log == 0 else "Fraudulent Transaction"
-    
-    # Use st.markdown with Streamlit styles to set color
+
     if prediction_log == 0:
-        st.success(f"Prediction: <span style='color:green'>{prediction_result}</span>")
+        st.success(f"Prediction: {prediction_result}")
     else:
-        st.error(f"Prediction: <span style='color:red'>{prediction_result}</span>")
+        st.error(f"Prediction: {prediction_result}")
+
 
 
 
