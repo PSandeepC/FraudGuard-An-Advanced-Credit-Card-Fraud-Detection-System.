@@ -6,7 +6,10 @@ import numpy as np
 # Load your models
 model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
 model_rf = pickle.load(open('random_forest_model.pkl', 'rb'))
+model_log_resampled = pickle.load(open('log_resampled_model.pkl', 'rb'))
+model_rf_resampled = pickle.load(open('rf_resampled_model.pkl', 'rb'))
 
+# Fix the dtype of the node array for Random Forest model
 for estimator in model_rf.estimators_:
     expected_dtype_rf = [
         ('left_child', '<i8'),
@@ -22,10 +25,6 @@ for estimator in model_rf.estimators_:
     # Check if the dtype needs to be fixed
     if estimator.tree_.__getstate__()['nodes'].dtype != np.dtype(expected_dtype_rf):
         estimator.tree_.__getstate__()['nodes'] = estimator.tree_.__getstate__()['nodes'].astype(expected_dtype_rf)
-        
-
-model_log_resampled = pickle.load(open('log_resampled_model.pkl', 'rb'))
-model_rf_resampled = pickle.load(open('rf_resampled_model.pkl', 'rb'))
 
 # Example input for user guidance
 example_input_resampled = [1, 1, 1, 1, 1, 1, 1, 25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
