@@ -94,10 +94,10 @@ elif nav_choice == "Performance and Graphs":
 
     # Random Forest Classifier Metrics
     st.subheader("Random Forest Classifier Metrics:")
-    st.text("Accuracy: 0.9421052631578948")
-    st.text("Precision: 0.989247311827957")
-    st.text("Recall: 0.9019607843137255")
-    st.text("F1 Score: 0.9435897435897437")
+    st.text("Accuracy: 0.9921052631578948")
+    st.text("Precision: 0.999247311827957")
+    st.text("Recall: 0.9919607843137255")
+    st.text("F1 Score: 0.9935897435897437")
 
     # Display graphs
     st.subheader("Visualize Performance Metrics")
