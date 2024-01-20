@@ -3,17 +3,11 @@ import streamlit as st
 import pickle
 import numpy as np
 
-
-
 # Load your models
 model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
-model_dt = pickle.load(open('decision_tree_model.pkl', 'rb'))
 model_rf = pickle.load(open('random_forest_model.pkl', 'rb'))
 
-    
-
 model_log_resampled = pickle.load(open('log_resampled_model.pkl', 'rb'))
-model_dt_resampled = pickle.load(open('dt_resampled_model.pkl', 'rb'))
 model_rf_resampled = pickle.load(open('rf_resampled_model.pkl', 'rb'))
 
 # Example input for user guidance
@@ -38,10 +32,9 @@ if nav_choice == "Home":
         # Use your models to make predictions based on user input
         input_data = [feature_values]
         prediction_log = model_log.predict(input_data)[0]
-        prediction_dt = model_dt.predict(input_data)[0]
         prediction_rf = model_rf.predict(input_data)[0]
 
-        prediction_result = "Normal Transaction" if prediction_log == 0 and prediction_dt == 0 and prediction_rf == 0 else "Fraudulent Transaction"
+        prediction_result = "Normal Transaction" if prediction_log == 0 and prediction_rf == 0 else "Fraudulent Transaction"
         st.success(f"Prediction: {prediction_result}")
 
 # Section 2: Display Oversampled Data
@@ -57,10 +50,9 @@ elif nav_choice == "Oversampled Data":
         # Use your models to make predictions based on oversampled data input
         input_data_resampled = [feature_values_resampled]
         prediction_log_resampled = model_log_resampled.predict(input_data_resampled)[0]
-        prediction_dt_resampled = model_dt_resampled.predict(input_data_resampled)[0]
         prediction_rf_resampled = model_rf_resampled.predict(input_data_resampled)[0]
 
-        prediction_result_resampled = "Normal Transaction" if prediction_log_resampled == 0 and prediction_dt_resampled == 0 and prediction_rf_resampled == 0 else "Fraudulent Transaction"
+        prediction_result_resampled = "Normal Transaction" if prediction_log_resampled == 0 and prediction_rf_resampled == 0 else "Fraudulent Transaction"
         st.success(f"Prediction (Oversampled Data): {prediction_result_resampled}")
 
 # Section 3: Model Scores and Graphs
