@@ -19,7 +19,7 @@ st.title("FraudGuard: An Advanced Credit Card Fraud Detection System")
 st.image('credit-card-fraud.png', use_column_width=True)
 
 # Navigation Bar
-nav_choice = st.sidebar.radio("Navigation", ["Home", "Oversampled Data", "Performance and Graphs", "About"])
+nav_choice = st.sidebar.radio( ["Home", "Oversampled Data", "Performance and Graphs", "About"])
 
 # Section 1: User Input for Prediction
 if nav_choice == "Home":
