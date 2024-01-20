@@ -1,7 +1,6 @@
 
 import streamlit as st
 import pickle
-import joblib
 import numpy as np
 
 
@@ -11,10 +10,6 @@ model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
 model_dt = pickle.load(open('decision_tree_model.joblib'))
 model_rf = pickle.load(open('random_forest_model.pkl', 'rb'))
 
-
-# Check if the dtype needs to be fixed
-if model_dt.tree_.__getstate__()['nodes'].dtype != np.dtype(expected_dtype):
-    model_dt.tree_.__getstate__()['nodes'] = model_dt.tree_.__getstate__()['nodes'].astype(expected_dtype)
     
 
 model_log_resampled = pickle.load(open('log_resampled_model.pkl', 'rb'))
