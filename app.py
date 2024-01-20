@@ -11,7 +11,7 @@ model_log_resampled = pickle.load(open('log_resampled_model.pkl', 'rb'))
 
 
 # Example input for user guidance
-example_input_resampled = [1, 1, 1, 1, 1, 1, 1, 25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+example_input_fraudulent = [1, 1, 1, 1, 1, 1, 1, 25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 # Streamlit App
 st.title("Credit Card Fraud Detection App")
