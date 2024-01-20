@@ -37,9 +37,8 @@ if nav_choice == "Home":
         prediction_log = model_log.predict(input_data)[0]
        
 
-    prediction_result = "Normal Transaction" if prediction_log == 0 else "Fraudulent Transaction"
-    status = "success" if prediction_log == 0 else "error"
-    st.status(f"Prediction: {prediction_result}", status)
+    prediction_result = "Normal Transaction" if prediction_log == 0  else "Fraudulent Transaction"
+    st.success(f"Prediction: {prediction_result}")
 
 
 
@@ -58,8 +57,8 @@ elif nav_choice == "Oversampled Data":
         input_data_resampled = [feature_values_resampled]
         prediction_log_resampled = model_log_resampled.predict(input_data_resampled)[0]
        
-        prediction_result_resampled = "Normal Transaction" if prediction_log_resampled  else "Fraudulent Transaction"
-        st.success(f"Prediction (Oversampled Data): {prediction_result_resampled}")
+    prediction_result = "Normal Transaction" if prediction_log_resampled == 0  else "Fraudulent Transaction"
+    st.success(f"Prediction: {prediction_result}")
 
 # Section 3: Model Scores and Graphs
 elif nav_choice == "Performance and Graphs":
