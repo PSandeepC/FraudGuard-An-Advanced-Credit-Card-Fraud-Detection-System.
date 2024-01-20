@@ -36,8 +36,16 @@ if nav_choice == "Home":
         prediction_log = model_log.predict(input_data)[0]
        
 
-        prediction_result = "Normal Transaction" if prediction_log == 0  else "Fraudulent Transaction"
-        st.success(f"Prediction: {prediction_result}")
+       # Assuming `prediction_log` is the result of your prediction (0 for normal, 1 for fraudulent)
+        prediction_log = 0  # Replace with your actual prediction result
+        
+        prediction_result = "Normal Transaction" if prediction_log == 0 else "Fraudulent Transaction"
+        
+        if prediction_log == 0:
+            st.success(f"<div style='color: green;'>Prediction: {prediction_result}</div>")
+        else:
+            st.error(f"<div style='color: red;'>Prediction: {prediction_result}</div>")
+
 
 # Section 2: Display Oversampled Data
 elif nav_choice == "Oversampled Data":
