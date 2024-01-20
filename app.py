@@ -2,6 +2,9 @@
 import streamlit as st
 import pickle
 import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 # Load your models
 model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
