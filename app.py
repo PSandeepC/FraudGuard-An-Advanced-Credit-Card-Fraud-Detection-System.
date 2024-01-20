@@ -4,32 +4,25 @@ import pickle
 import joblib
 import numpy as np
 
-# Load the Decision Tree model pickle file
-with open('decision_tree_model.pkl', 'rb') as file:
-    model_dt = pickle.load(file)
 
-# Fix the dtype of the node array
-expected_dtype = [
-    ('left_child', '<i8'),
-    ('right_child', '<i8'),
-    ('feature', '<i8'),
-    ('threshold', '<f8'),
-    ('impurity', '<f8'),
-    ('n_node_samples', '<i8'),
-    ('weighted_n_node_samples', '<f8'),
-    ('missing_go_to_left', 'u1')
-]
+# Streamlit < 0.65
+from streamlit.ReportThread import get_report_ctx
 
-# Check if the dtype needs to be fixed
-if model_dt.tree_.__getstate__()['nodes'].dtype != np.dtype(expected_dtype):
-    model_dt.tree_.__getstate__()['nodes'] = model_dt.tree_.__getstate__()['nodes'].astype(expected_dtype)
+# Streamlit > 0.65
+from streamlit.report_thread import get_report_ctx
 
-# Save the model with joblib
-joblib.dump(model_dt, 'decision_tree_model.joblib')
+# Streamlit > ~1.3
+from streamlit.script_run_context import get_script_run_ctx as get_report_ctx
+
+# Streamlit > ~1.8
+from streamlit.scriptrunner.script_run_context import get_script_run_ctx as get_report_ctx
+
+# Streamlit > ~1.12
+from streamlit.runtime.scriptrunner.script_run_context import get_script_run_ctx as get_report_ctx
 
 # Load your models
 model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
-model_dt = joblib.load('decision_tree_model.joblib')
+model_dt = pickle.load(open('decision_tree_model.joblib'))
 model_rf = pickle.load(open('random_forest_model.pkl', 'rb'))
 
 
