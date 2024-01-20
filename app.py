@@ -1,16 +1,14 @@
 
 import streamlit as st
 import pickle
+import joblib
 import numpy as np
-from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
 
-# Load your models
-model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
-model_dt = pickle.load(open('decision_tree_model.pkl', 'rb'))
-model_rf = pickle.load(open('random_forest_model.pkl', 'rb'))
+# Load the Decision Tree model pickle file
+with open('decision_tree_model.pkl', 'rb') as file:
+    model_dt = pickle.load(file)
 
+# Fix the dtype of the node array
 expected_dtype = [
     ('left_child', '<i8'),
     ('right_child', '<i8'),
@@ -21,6 +19,19 @@ expected_dtype = [
     ('weighted_n_node_samples', '<f8'),
     ('missing_go_to_left', 'u1')
 ]
+
+# Check if the dtype needs to be fixed
+if model_dt.tree_.__getstate__()['nodes'].dtype != np.dtype(expected_dtype):
+    model_dt.tree_.__getstate__()['nodes'] = model_dt.tree_.__getstate__()['nodes'].astype(expected_dtype)
+
+# Save the model with joblib
+joblib.dump(model_dt, 'decision_tree_model.joblib')
+
+# Load your models
+model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
+model_dt = joblib.load('decision_tree_model.joblib')
+model_rf = pickle.load(open('random_forest_model.pkl', 'rb'))
+
 
 # Check if the dtype needs to be fixed
 if model_dt.tree_.__getstate__()['nodes'].dtype != np.dtype(expected_dtype):
