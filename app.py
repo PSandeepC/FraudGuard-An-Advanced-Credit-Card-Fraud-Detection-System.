@@ -24,7 +24,7 @@ nav_choice = st.sidebar.radio("Navigation", ["Home", "Oversampled Data", "Perfor
 # Section 1: User Input for Prediction
 if nav_choice == "Home":
     st.header("Make a Prediction")
-    
+    st.write("Use the following options to make a prediction with the trained models. feel free to try with different values.")
     # Option to manually enter input
     st.subheader("Enter Input Manually:")
     feature_values = [st.slider(f"Feature {i}", min_value=0, max_value=100, value=example_input_resampled[i-1]) for i in range(1, 30)]
