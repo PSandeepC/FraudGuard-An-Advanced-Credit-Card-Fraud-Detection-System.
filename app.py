@@ -2,6 +2,7 @@
 import streamlit as st
 import pickle
 import numpy as np
+import pandas
 
 # Load your models
 model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
