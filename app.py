@@ -9,7 +9,7 @@ model_rf = pickle.load(open('random_forest_model.pkl', 'rb'))
 model_log_resampled = pickle.load(open('log_resampled_model.pkl', 'rb'))
 model_rf_resampled = pickle.load(open('rf_resampled_model.pkl', 'rb'))
 
-# Fix the dtype of the node array for Random Forest model
+# Function to fix the dtype of the node array for Random Forest model
 def fix_rf_dtype(tree_):
     expected_dtype_rf = [
         ('left_child', '<i8'),
@@ -24,11 +24,12 @@ def fix_rf_dtype(tree_):
 
     # Check if the dtype needs to be fixed
     if tree_.dtype != np.dtype(expected_dtype_rf):
-        tree_ = tree_.astype(expected_dtype_rf)
+        tree_ = np.array(tree_, dtype=expected_dtype_rf)
     return tree_
 
+# Fix the dtype for each estimator in the Random Forest model
 for estimator in model_rf.estimators_:
-    estimator.tree_ = fix_rf_dtype(estimator.tree_.__getstate__()['nodes'])
+    estimator.tree_.__getstate__()['nodes'] = fix_rf_dtype(estimator.tree_.__getstate__()['nodes'])
 
 # Example input for user guidance
 example_input_resampled = [1, 1, 1, 1, 1, 1, 1, 25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
