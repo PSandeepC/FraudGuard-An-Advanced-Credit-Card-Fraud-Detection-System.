@@ -42,7 +42,7 @@ if nav_choice == "Home":
 # Section 2: Display Oversampled Data
 elif nav_choice == "Oversampled Data":
     st.header("Oversampled Data Input and Prediction")
-    
+    st.write("To address class imbalance in our credit card fraud detection project, we employed oversampling. This technique involves creating additional instances of the minority class (fraudulent transactions) to achieve a more balanced dataset. Oversampling enhances the model's ability to detect instances of fraud, contributing to a more robust and reliable fraud detection system.")
     # Option to manually enter input for oversampled data
     st.subheader("Enter Oversampled Data Input:")
     feature_values_resampled = [st.slider(f"Feature {i}", min_value=0, max_value=100, value=example_input_resampled[i-1]) for i in range(1, 30)]
