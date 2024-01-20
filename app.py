@@ -57,13 +57,19 @@ elif nav_choice == "Oversampled Data":
     feature_values_resampled = [st.slider(f"Feature {i}", min_value=0, max_value=100, value=example_input_resampled[i-1]) for i in range(1, 30)]
 
     # Button to trigger prediction
+    prediction_log = None
     if st.button("Predict (Oversampled Data)"):
         # Use your models to make predictions based on oversampled data input
         input_data_resampled = [feature_values_resampled]
         prediction_log_resampled = model_log_resampled.predict(input_data_resampled)[0]
        
-    prediction_result = "Normal Transaction" if prediction_log_resampled == 0  else "Fraudulent Transaction"
-    st.success(f"Prediction: {prediction_result}")
+    prediction_result = "Normal Transaction" if prediction_log == 0 else "Fraudulent Transaction"
+    status = "success" if prediction_log == 0 else "error"
+    
+    if status == "success":
+        st.success(f"Prediction: {prediction_result}")
+    else:
+        st.error(f"Prediction: {prediction_result}")
 
 # Section 3: Model Scores and Graphs
 elif nav_choice == "Performance and Graphs":
