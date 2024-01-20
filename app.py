@@ -7,7 +7,7 @@ import numpy as np
 
 # Load your models
 model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
-model_dt = pickle.load(open('decision_tree_model.joblib'))
+model_dt = pickle.load(open('decision_tree_model.pkl', 'rb'))
 model_rf = pickle.load(open('random_forest_model.pkl', 'rb'))
 
     
