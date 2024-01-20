@@ -29,8 +29,7 @@ if nav_choice == "Home":
     st.subheader("Enter Input Manually:")
     feature_values = [st.slider(f"Feature {i}", min_value=0, max_value=100, value=example_input_resampled[i-1]) for i in range(1, 30)]
 
-    # Button to trigger prediction
-    prediction_log = 0  # or 1, depending on your scenario
+    
     if st.button("Predict"):
         # Use your models to make predictions based on user input
         input_data = [feature_values]
