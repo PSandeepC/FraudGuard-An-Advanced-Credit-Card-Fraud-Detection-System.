@@ -1,11 +1,28 @@
 
 import streamlit as st
 import pickle
+import numpy as np
 
 # Load your models
 model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
 model_dt = pickle.load(open('decision_tree_model.pkl', 'rb'))
 model_rf = pickle.load(open('random_forest_model.pkl', 'rb'))
+
+expected_dtype = [
+    ('left_child', '<i8'),
+    ('right_child', '<i8'),
+    ('feature', '<i8'),
+    ('threshold', '<f8'),
+    ('impurity', '<f8'),
+    ('n_node_samples', '<i8'),
+    ('weighted_n_node_samples', '<f8'),
+    ('missing_go_to_left', 'u1')
+]
+
+# Check if the dtype needs to be fixed
+if model_dt.tree_.__getstate__()['nodes'].dtype != np.dtype(expected_dtype):
+    model_dt.tree_.__getstate__()['nodes'] = model_dt.tree_.__getstate__()['nodes'].astype(expected_dtype)
+    
 
 model_log_resampled = pickle.load(open('log_resampled_model.pkl', 'rb'))
 model_dt_resampled = pickle.load(open('dt_resampled_model.pkl', 'rb'))
