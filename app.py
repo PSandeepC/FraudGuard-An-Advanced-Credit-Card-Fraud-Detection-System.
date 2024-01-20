@@ -30,6 +30,7 @@ if nav_choice == "Home":
     feature_values = [st.slider(f"Feature {i}", min_value=0, max_value=100, value=example_input_resampled[i-1]) for i in range(1, 30)]
 
     # Button to trigger prediction
+    prediction_log = get_prediction_log()
     if st.button("Predict"):
         # Use your models to make predictions based on user input
         input_data = [feature_values]
