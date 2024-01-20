@@ -16,7 +16,7 @@ example_input_resampled = [27, 15, 24, 38, 21, 48, 1, 25, 1, 1, 1, 1, 1, 1, 1, 1
 
 # Streamlit App
 st.title("FraudGuard An Advanced Credit Card Fraud Detection System")
- st.image('credit-card-fraud.png', use_column_width=True)
+st.image('credit-card-fraud.png', use_column_width=True)
 
 # Navigation Bar
 nav_choice = st.sidebar.radio("Navigation", ["Home", "Oversampled Data", "Performance and Graphs", "About"])
