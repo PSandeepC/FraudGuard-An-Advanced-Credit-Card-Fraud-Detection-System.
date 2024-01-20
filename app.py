@@ -63,9 +63,43 @@ elif nav_choice == "Performance and Graphs":
     st.subheader("Model Scores:")
     st.table(scores_data)
 
+    # Logistic Regression Metrics
+    st.subheader("Logistic Regression Metrics:")
+    st.text("Accuracy: 0.9526315789473684")
+    st.text("Precision: 1.0")
+    st.text("Recall: 0.9117647058823529")
+    st.text("F1 Score: 0.9538461538461539")
+
+    # Decision Tree Classifier Metrics
+    st.subheader("Decision Tree Classifier Metrics:")
+    st.text("Accuracy: 0.9263157894736842")
+    st.text("Precision: 0.9313725490196079")
+    st.text("Recall: 0.9313725490196079")
+    st.text("F1 Score: 0.9313725490196079")
+
+    # Random Forest Classifier Metrics
+    st.subheader("Random Forest Classifier Metrics:")
+    st.text("Accuracy: 0.9421052631578948")
+    st.text("Precision: 0.989247311827957")
+    st.text("Recall: 0.9019607843137255")
+    st.text("F1 Score: 0.9435897435897437")
+
     # Display graphs
-    st.subheader("Model Performance Graphs:")
-    st.image(example_graph_image_path, use_column_width=True, caption="Example Graph")
+    st.subheader("Visualize Performance Metrics")
+    st.image(performance_metrics_image_path, use_column_width=True, caption="Performance Metrics Visualization")
+
+    st.subheader("Visualize Confusion Matrix")
+    st.image(confusion_matrix_image_path, use_column_width=True, caption="Confusion Matrix Visualization")
+
+    st.subheader("Performance Comparison with Oversampling")
+    st.image(oversampling_comparison_image_path, use_column_width=True, caption="Oversampling Comparison")
+
+    st.subheader("Class Distribution")
+    st.image(class_distribution_image_path, use_column_width=True, caption="Class Distribution")
+
+    st.subheader("Class Distribution After Undersampling")
+    st.image(undersampling_distribution_image_path, use_column_width=True, caption="Class Distribution After Undersampling")
+
 
 # Section 4: About
 elif nav_choice == "About":
