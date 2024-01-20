@@ -3,13 +3,13 @@ import streamlit as st
 import pickle
 
 # Load your models
-model_log = pickle.load(open('/content/logistic_regression_model.pkl', 'rb'))
-model_dt = pickle.load(open('/content/decision_tree_model.pkl', 'rb'))
-model_rf = pickle.load(open('/content/random_forest_model.pkl', 'rb'))
+model_log = pickle.load(open('logistic_regression_model.pkl', 'rb'))
+model_dt = pickle.load(open('decision_tree_model.pkl', 'rb'))
+model_rf = pickle.load(open('random_forest_model.pkl', 'rb'))
 
-model_log_resampled = pickle.load(open('/content/log_resampled_model.pkl', 'rb'))
-model_dt_resampled = pickle.load(open('/content/dt_resampled_model.pkl', 'rb'))
-model_rf_resampled = pickle.load(open('/content/rf_resampled_model.pkl', 'rb'))
+model_log_resampled = pickle.load(open('log_resampled_model.pkl', 'rb'))
+model_dt_resampled = pickle.load(open('dt_resampled_model.pkl', 'rb'))
+model_rf_resampled = pickle.load(open('rf_resampled_model.pkl', 'rb'))
 
 # Example input for user guidance
 example_input_resampled = [1, 1, 1, 1, 1, 1, 1, 25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
