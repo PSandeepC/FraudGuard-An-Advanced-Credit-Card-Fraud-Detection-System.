@@ -38,7 +38,12 @@ if nav_choice == "Home":
 
     prediction_result = "Normal Transaction" if prediction_log == 0 else "Fraudulent Transaction"
     status = "success" if prediction_log == 0 else "error"
-    st.status(f"Prediction: {prediction_result}", status)
+    
+    if status == "success":
+        st.success(f"Prediction: {prediction_result}")
+    else:
+        st.error(f"Prediction: {prediction_result}")
+
 
 
 
